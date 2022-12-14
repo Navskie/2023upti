@@ -602,6 +602,9 @@
                                             <h6><i class="text-danger">(Select Payment Method to Enable CHECKOUT)</i></h6>
                                            
                                             <div class="row">
+                                                <?php
+                                                  if ($customer_country != 'USA') {
+                                                ?>
                                                 <div class="col-6">
                                                     <div class="form-group">
                                                         <button type="submit" name="cod" class="form-control btn btn-success" style="border-radius: 0 !important">Cash On Delivery</button>
@@ -612,6 +615,17 @@
                                                         <button type="submit" name="cop" class="form-control btn btn-success" style="border-radius: 0 !important">Cash On Pick Up</button>
                                                     </div>
                                                 </div>
+                                                <?php
+                                                  } else {
+                                                ?>
+                                                <div class="col-12">
+                                                  <div class="form-group">
+                                                      <button type="submit" name="cop" class="form-control btn btn-success" style="border-radius: 0 !important">Cash On Pick Up</button>
+                                                  </div>
+                                                </div>
+                                                <?php
+                                                  }
+                                                ?>
                                             </div>
                                             
                                             <div class="form-group">

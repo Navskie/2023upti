@@ -290,6 +290,7 @@
                     <div class="col-12">
                       <label for="">Payment Method</label>
                     </div>
+                    <?php if ($country != 'USA') { ?>
                     <div class="col-sm-12 col-md-12 col-lg-9">
                       <form action="payment-method.php?mop=<?php echo $poid ?>" method="post">
                       <select class="form-control select2bs4" style="width: 100%;" name="mod">
@@ -300,6 +301,17 @@
                         <option value="Bank">Bank</option>
                       </select>
                     </div>
+                    <?php } else { ?>
+                    <div class="col-sm-12 col-md-12 col-lg-9">
+                      <form action="payment-method.php?mop=<?php echo $poid ?>" method="post">
+                      <select class="form-control select2bs4" style="width: 100%;" name="mod">
+                        <option value="<?php echo $mode_of_payment ?>"><?php echo $mode_of_payment ?></option>
+                        <option value="Cash On Pick Up">Cash On Pick Up</option>
+                        <option value="Payment First">Payment First</option>
+                        <option value="Bank">Bank</option>
+                      </select>
+                    </div>
+                    <?php } ?>
                     <div class="col-sm-12 col-md-12 col-lg-3">
                       <button class="btn btn-dark form-control rounded-0" name="payment">Submit</button>
                       </form>
