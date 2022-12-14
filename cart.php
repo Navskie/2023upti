@@ -169,7 +169,19 @@
                     <label><b>Payment Method</b></label>
                     <form action="backend/mop.php" method="POST">
                         <div class="row">
-                            <div class="col-4">
+                            <?php if ($customer_country == 'USA') { ?>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <button class="btn btn-dark w-100" name="COP">Cash On Pick Up <i class="uil uil-money-withdrawal"></i></button>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <button class="btn btn-dark w-100" name="BANK">Payment First <i class="uil uil-master-card"></i></button>
+                                </div>
+                            </div>
+                            <?php } else { ?>
+                              <div class="col-4">
                                 <div class="form-group">
                                     <button class="btn btn-dark w-100" name="COD">Cash On Delivery <i class="uil uil-truck"></i></button>
                                 </div>
@@ -184,6 +196,7 @@
                                     <button class="btn btn-dark w-100" name="BANK">Payment First <i class="uil uil-master-card"></i></button>
                                 </div>
                             </div>
+                            <?php } ?>
                         </div>
                     </form>
 
