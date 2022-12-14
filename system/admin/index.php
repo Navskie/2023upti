@@ -10,7 +10,7 @@
             <!-- Page header start -->
             <div class="page-header m-t-10">
               <div class="page-header-title">
-                <h4>Horizontal Fixed Layout</h4>
+                <h4>Test layout</h4>
               </div>
               <div class="page-header-breadcrumb">
                 <ul class="breadcrumb-title">

@@ -132,8 +132,13 @@
             $_SESSION['code'] = $check_account_fetch['users_code'];
             $_SESSION['role'] = $check_account_fetch['users_role'];
             header('Location: system/cs-onprocess-order.php');
+          } elseif($role == 'HAVEN-CSR') {
+            $_SESSION['status'] = 'valid';
+            $_SESSION['uid'] = $check_account_fetch['users_id'];
+            $_SESSION['code'] = $check_account_fetch['users_code'];
+            $_SESSION['role'] = $check_account_fetch['users_role'];
+            header('Location: system/admin/index.php');
           }
-
           
         } else {
         flash('warn', 'Username and Password not match.');

@@ -11,7 +11,7 @@
             <a class="mobile-search morphsearch-search" href="#">
                 <i class="ti-search"></i>
             </a>
-            <a href="index.html">
+            <a href="https://upticorporationph.com">
                 <img class="img-fluid" src="assets/images/uptimised.png" alt="Theme-Logo">
             </a>
             <a class="mobile-options">
@@ -42,139 +42,13 @@
                                 <div class="media">
                                     <img class="d-flex align-self-center" src="assets/images/user.png" alt="Generic placeholder image">
                                     <div class="media-body">
-                                        <h5 class="notification-user">Soeng Souy</h5>
-                                        <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
-                                        <span class="notification-time">30 minutes ago</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="media">
-                                    <img class="d-flex align-self-center" src="assets/images/user.png" alt="Generic placeholder image">
-                                    <div class="media-body">
-                                        <h5 class="notification-user">Soeng Souy</h5>
-                                        <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
-                                        <span class="notification-time">30 minutes ago</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="media">
-                                    <img class="d-flex align-self-center" src="assets/images/user.png" alt="Generic placeholder image">
-                                    <div class="media-body">
-                                        <h5 class="notification-user">Soeng Souy</h5>
-                                        <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
-                                        <span class="notification-time">30 minutes ago</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="media">
-                                    <img class="d-flex align-self-center" src="assets/images/user.png" alt="Generic placeholder image">
-                                    <div class="media-body">
-                                        <h5 class="notification-user">Soeng Souy</h5>
-                                        <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
-                                        <span class="notification-time">30 minutes ago</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="media">
-                                    <img class="d-flex align-self-center" src="assets/images/user.png" alt="Generic placeholder image">
-                                    <div class="media-body">
-                                        <h5 class="notification-user">Soeng Souy</h5>
-                                        <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
-                                        <span class="notification-time">30 minutes ago</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="media">
-                                    <img class="d-flex align-self-center" src="assets/images/user.png" alt="Generic placeholder image">
-                                    <div class="media-body">
-                                        <h5 class="notification-user">Soeng Souy</h5>
-                                        <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
-                                        <span class="notification-time">30 minutes ago</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="media">
-                                    <img class="d-flex align-self-center" src="assets/images/user.png" alt="Generic placeholder image">
-                                    <div class="media-body">
-                                        <h5 class="notification-user">Soeng Souy</h5>
-                                        <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
-                                        <span class="notification-time">30 minutes ago</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="media">
-                                    <img class="d-flex align-self-center" src="assets/images/user.png" alt="Generic placeholder image">
-                                    <div class="media-body">
-                                        <h5 class="notification-user">Soeng Souy</h5>
-                                        <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
-                                        <span class="notification-time">30 minutes ago</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="media">
-                                    <img class="d-flex align-self-center" src="assets/images/user.png" alt="Generic placeholder image">
-                                    <div class="media-body">
-                                        <h5 class="notification-user">Soeng Souy</h5>
-                                        <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
-                                        <span class="notification-time">30 minutes ago</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="media">
-                                    <img class="d-flex align-self-center" src="assets/images/user.png" alt="Generic placeholder image">
-                                    <div class="media-body">
-                                        <h5 class="notification-user">Soeng Souy</h5>
-                                        <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
-                                        <span class="notification-time">30 minutes ago</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="media">
-                                    <img class="d-flex align-self-center" src="assets/images/user.png" alt="Generic placeholder image">
-                                    <div class="media-body">
-                                        <h5 class="notification-user">Soeng Souy</h5>
-                                        <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
-                                        <span class="notification-time">30 minutes ago</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="media">
-                                    <img class="d-flex align-self-center" src="assets/images/user.png" alt="Generic placeholder image">
-                                    <div class="media-body">
-                                        <h5 class="notification-user">Joseph William</h5>
-                                        <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
-                                        <span class="notification-time">30 minutes ago</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="media">
-                                    <img class="d-flex align-self-center" src="assets/images/user.png" alt="Generic placeholder image">
-                                    <div class="media-body">
-                                        <h5 class="notification-user">Sara Soudein</h5>
+                                        <h5 class="notification-user">Sample Text</h5>
                                         <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
                                         <span class="notification-time">30 minutes ago</span>
                                     </div>
                                 </div>
                             </li>
                         </ul>
-                    </li>
-                    <li class="header-notification">
-                        <a href="#!" class="displayChatbox">
-                            <i class="ti-comments"></i>
-                            <span class="badge">9</span>
-                        </a>
                     </li>
                     <li class="user-profile header-notification">
                         <a href="#!">
@@ -183,26 +57,16 @@
                             <i class="ti-angle-down"></i>
                         </a>
                         <ul class="show-notification profile-notification">
-                            <li>
+                            <!-- <li>
                                 <a href="#!">
                                     <i class="ti-settings"></i> Settings
-                                </a>
-                            </li>
-                            <li>
-                                <a href="user-profile.html">
-                                    <i class="ti-user"></i> Profile
-                                </a>
-                            </li>
-                            <li>
-                                <a href="email-inbox.html">
-                                    <i class="ti-email"></i> My Messages
                                 </a>
                             </li>
                             <li>
                                 <a href="auth-lock-screen.html">
                                     <i class="ti-lock"></i> Lock Screen
                                 </a>
-                            </li>
+                            </li> -->
                             <li>
                                 <a href="#!">
                                     <i class="ti-layout-sidebar-left"></i> Logout

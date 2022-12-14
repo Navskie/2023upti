@@ -1,3 +1,6 @@
+<?php
+  include 'database/dbconn.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,6 +26,10 @@
     <link rel="stylesheet" type="text/css" href="assets/pages/flag-icon/flag-icon.min.css">
     <!-- Menu-Search css -->
     <link rel="stylesheet" type="text/css" href="assets/pages/menu-search/css/component.css">
+    <!-- Data Table Css -->
+    <link rel="stylesheet" type="text/css" href="../bower_components/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/pages/data-table/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="../bower_components/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css">
     <!-- Syntax highlighter Prism css -->
     <link rel="stylesheet" type="text/css" href="assets/pages/prism/prism.css">
     <!-- Style.css -->
@@ -36,6 +43,12 @@
     <link rel="stylesheet" type="text/css" href="assets/css/ionicons.css">
     <link rel="stylesheet" type="text/css" href="assets/css/jquery.mCustomScrollbar.css">
     <link rel="stylesheet" type="text/css" href="assets/css/pcoded-horizontal.min.css">
+
+    <style>
+      .pcoded[theme-layout="horizontal"] .selector-toggle > a, .pcoded[vertical-placement="left"] .selector-toggle > a {
+        left: 0;
+      }
+    </style>
 </head>
 <!-- Menu horizontal fixed layout -->
 
