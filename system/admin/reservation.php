@@ -61,12 +61,12 @@
 
                                         if ($status == 'Pending') {
                                       ?>
-                                        <button class="btn-sm btn btn-info" data-modal="modal-2">On Process</button>
+                                        <button type="button" class="btn btn-sm btn-default waves-effect md-trigger" data-modal="modal-1<?php echo $data['details_ref'] ?>">On Process</button>
                                         <button class="btn-sm btn btn-danger">Cancel</button>
                                       <?php
                                         } elseif ($status == 'On Process') {
                                       ?>
-                                        <button type="button" class="btn-sm btn btn-success">Reserved</button>
+                                        <button type="button" class="btn btn-default btn-outline-default waves-effect md-trigger" data-modal="modal-1">Reserved<?php echo $data['details_ref'] ?></button>
                                       <?php
                                         }
                                       ?>
@@ -80,23 +80,7 @@
                             </tbody>
                         </table>
                     </div>
-                </div>
-                <button type="button" class="btn btn-default btn-outline-default waves-effect md-trigger" data-modal="modal-1">Fade in &amp; Scale</button>
-                <!-- animation modal Dialogs start -->
-                <div class="md-modal md-effect-1" id="modal-1">
-                                                                    <div class="md-content">
-                                                                        <h3>Modal Dialog</h3>
-                                                                        <div>
-                                                                            <p>This is a modal window. You can do the following things with it:</p>
-                                                                            <ul>
-                                                                                <li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
-                                                                                <li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
-                                                                                <li><strong>Close:</strong> click on the button below to close the modal.</li>
-                                                                            </ul>
-                                                                            <button type="button" class="btn btn-primary waves-effect md-close">Close</button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
+                </div>                  
             </div>
             <!-- Language - Comma Decimal Place table end -->
         </div>
