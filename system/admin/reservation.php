@@ -1,56 +1,43 @@
-<?php require_once 'include/header.php' ?>
-<?php require_once 'include/navbar.php' ?>
-<?php require_once 'include/topbar.php' ?>
-<div class="pcoded-wrapper">
-  <div class="pcoded-content">
-    <div class="pcoded-inner-content">
-        <!-- Main-body start -->
-        <div class="main-body">
-          <div class="page-wrapper">
-            <!-- Page header start -->
-            <div class="page-header m-t-10">
-              <div class="page-header-title">
-                <h4>Managed Reservation</h4>
-              </div>
-              <div class="page-header-breadcrumb">
-                <ul class="breadcrumb-title">
-                  <li class="breadcrumb-item">
-                    <a href="index.php">
-                      <i class="icofont icofont-home"></i>
-                    </a>
-                  </li>
-                  <li class="breadcrumb-item"><a href="reservation.php">Reservation</a>
-                </ul>
-              </div>
-            </div>
-            <!-- Page header end -->
+<?php include 'include/header.php' ?>
+<?php include 'include/navbar.php' ?>
+<?php include 'include/topbar.php' ?>
 
-            <!-- Page body start -->
-            <div class="page-body">
-              <!-- Language - Comma Decimal Place table start -->
-              <div class="card">
-                <div class="card-header">
-                    <h5>Reservation List</h5>
-                    <!-- <span>A dot (.) is used to mark the decimal place in Javascript, however, many parts of the world use a comma (,) and other characters such as the Unicode decimal separator (⎖) or a dash (-) are often used to show the decimal place in a displayed number.</span> -->
-                    <div class="card-header-right">
-                        <i class="icofont icofont-rounded-down"></i>
-                        <i class="icofont icofont-refresh"></i>
-                        <i class="icofont icofont-close-circled"></i>
-                    </div>
-                </div>
+<div class="page-wrapper">
+<!-- Page-header start -->
+<div class="page-header">
+    <div class="page-header-title">
+        <h4>Reservation Page</h4>
+        <span>Manage Pending & On Process Status</span>
+    </div>
+    <div class="page-header-breadcrumb">
+        <ul class="breadcrumb-title">
+            <li class="breadcrumb-item">Hidden Haven Resort
+            </li>
+            <li class="breadcrumb-item">Reservation Page
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- Page-header end -->
+<!-- Page-body start -->
+<div class="page-body">
+    <div class="row">
+        <div class="col-sm-12">
+            <!-- Language - Comma Decimal Place table start -->
+            <div class="card">
                 <div class="card-block">
                     <div class="dt-responsive table-responsive">
                         <table id="lang-dt" class="table table-striped table-bordered nowrap">
                             <thead>
                                 <tr>
-                                    <th>#</th>
-                                    <th>Book Reference</th>
-                                    <th>Book Date</th>
-                                    <th>Reservation Date</th>
-                                    <th>Description</th>
-                                    <th>Amount</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
+                                  <th>#</th>
+                                  <th>Book Reference</th>
+                                  <th>Book Date</th>
+                                  <th>Reservation Date</th>
+                                  <th>Description</th>
+                                  <th>Amount</th>
+                                  <th>Status</th>
+                                  <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -94,16 +81,26 @@
                         </table>
                     </div>
                 </div>
-              </div>
-              <!-- Language - Comma Decimal Place table end -->
+                <button type="button" class="btn btn-default btn-outline-default waves-effect md-trigger" data-modal="modal-1">Fade in &amp; Scale</button>
+                <!-- animation modal Dialogs start -->
+                <div class="md-modal md-effect-1" id="modal-1">
+                                                                    <div class="md-content">
+                                                                        <h3>Modal Dialog</h3>
+                                                                        <div>
+                                                                            <p>This is a modal window. You can do the following things with it:</p>
+                                                                            <ul>
+                                                                                <li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
+                                                                                <li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
+                                                                                <li><strong>Close:</strong> click on the button below to close the modal.</li>
+                                                                            </ul>
+                                                                            <button type="button" class="btn btn-primary waves-effect md-close">Close</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
             </div>
-          </div>
-          <!-- Page body end -->
+            <!-- Language - Comma Decimal Place table end -->
         </div>
-      </div>
-      <!-- Main-body end -->
-      <div id="styleSelector">
-      </div>
-  </div>
+    </div>
 </div>
-<?php require_once 'include/footer.php' ?>
+<!-- Page-body end -->
+<?php include 'include/footer.php' ?>
