@@ -1,5 +1,5 @@
 <!-- animation modal Dialogs start -->
-<div class="md-modal md-effect-1" id="modal-1<?php echo $data['details_ref'] ?>">
+<div class="md-modal md-effect-5" id="modal-1<?php echo $data['details_ref'] ?>">
     <div class="md-content">
         <h3>Warning</h3>
         <div>

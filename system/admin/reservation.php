@@ -30,14 +30,14 @@
                         <table id="lang-dt" class="table table-striped table-bordered nowrap">
                             <thead>
                                 <tr>
-                                  <th>#</th>
-                                  <th>Book Reference</th>
-                                  <th>Book Date</th>
-                                  <th>Reservation Date</th>
-                                  <th>Description</th>
-                                  <th>Amount</th>
-                                  <th>Status</th>
-                                  <th>Action</th>
+                                  <th class="text-center">#</th>
+                                  <th class="text-center">Book Reference</th>
+                                  <th class="text-center">Book Date</th>
+                                  <th class="text-center">Reservation Date</th>
+                                  <th class="text-center">Description</th>
+                                  <th class="text-center">Amount</th>
+                                  <th class="text-center">Status</th>
+                                  <th class="text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -48,13 +48,13 @@
                                 foreach ($booking as $data) {
                               ?>
                                 <tr>
-                                    <td><?php echo $number ?></td>
-                                    <td><?php echo $data['details_ref'] ?></td>
-                                    <td><?php echo $data['booking_date'] ?></td>
-                                    <td><?php echo $data['booking_start'] ?> - <?php echo $data['booking_end'] ?></td>
-                                    <td><?php echo $data['details_desc'] ?></td>
-                                    <td><?php echo $data['details_amount'] ?></td>
-                                    <td><?php echo $data['booking_status'] ?></td>
+                                    <td class="text-center"><?php echo $number ?></td>
+                                    <td class="text-center"><?php echo $data['details_ref'] ?></td>
+                                    <td class="text-center"><?php echo $data['booking_date'] ?></td>
+                                    <td class="text-center"><?php echo $data['booking_start'] ?> - <?php echo $data['booking_end'] ?></td>
+                                    <td class="text-center"><?php echo $data['details_desc'] ?></td>
+                                    <td class="text-center"><?php echo $data['details_amount'] ?></td>
+                                    <td class="text-center"><?php echo $data['booking_status'] ?></td>
                                     <td class="text-center">
                                       <?php
                                         $status = $data['booking_status'];
@@ -66,7 +66,11 @@
                                       <?php
                                         } elseif ($status == 'On Process') {
                                       ?>
-                                        <button type="button" class="btn btn-default btn-outline-default waves-effect md-trigger" data-modal="modal-1">Reserved<?php echo $data['details_ref'] ?></button>
+                                        <button type="button" class="btn btn-success waves-effect md-trigger" data-modal="success-1<?php echo $data['details_ref'] ?>">Success</button>
+                                      <?php
+                                        } elseif ($status == 'Success') {
+                                      ?>
+                                        <span class="badge badge-danger">No Action</span>
                                       <?php
                                         }
                                       ?>
@@ -74,6 +78,7 @@
                                 </tr>
                               <?php
                                 include 'backend/reserve-on-modal.php';
+                                include 'backend/success-modal.php';
                                 $number++;
                                 }
                               ?>
