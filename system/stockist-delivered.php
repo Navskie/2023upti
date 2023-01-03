@@ -75,7 +75,7 @@
                         if ($country == 'CANADA' && $state == 'ALBERTA') {
                           $order_sql = "SELECT * FROM upti_transaction WHERE trans_status= 'Delivered' AND trans_country = '$country' AND trans_state = '$state' AND trans_date BETWEEN '$date1' AND '$date2' GROUP BY trans_poid ORDER BY trans_poid DESC";
                         } elseif ($country == 'CANADA' && $state != 'ALBERTA') {
-                          $order_sql = "SELECT * FROM upti_transaction INNER JOIN upti_activities ON activities_poid = trans_poid WHERE trans_status= 'Delivered' AND trans_country = '$country' AND trans_state != 'ALBERTA' AND activities_date BETWEEN '$date1' AND '$date2' GROUP BY trans_poid ORDER BY trans_poid DESC";
+                          echo $order_sql = "SELECT trans_poid, trans_country, trans_state, trans_fname, trans_date, trans_cname, trans_mop, trans_lname, trans_subtotal, trans_status, trans_my_reseller, trans_seller, upti_transaction.id FROM upti_transaction INNER JOIN upti_activities ON activities_poid = trans_poid WHERE trans_status= 'Delivered' AND trans_country = '$country' AND trans_state != 'ALBERTA' AND activities_date BETWEEN '$date1' AND '$date2' GROUP BY trans_poid ORDER BY trans_poid DESC";
                         } else {
                           $order_sql = "SELECT * FROM upti_transaction WHERE trans_status= 'Delivered' AND trans_country = '$country' AND trans_date BETWEEN '$date1' AND '$date2' ORDER BY trans_poid DESC";
                         }

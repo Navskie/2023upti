@@ -379,7 +379,7 @@
     $desc = $namex.' Update '.$poid.' set Ordered Status into Cancel';
 
     // HISTORY
-    $act = "INSERT INTO upti_activities (activities_poid, activities_time, activities_date, activities_name, activities_caption, activities_desc) VALUES ('$poid', $time', '$datenow', '$namex', 'Canceled', '$desc')";
+    $act = "INSERT INTO upti_activities (activities_poid, activities_time, activities_date, activities_name, activities_caption, activities_desc) VALUES ('$poid', '$time', '$datenow', '$namex', 'Canceled', '$desc')";
     $act_qry = mysqli_query($connect, $act);
 
     $update_stats = "UPDATE upti_transaction SET trans_status = 'Canceled' WHERE id = '$id'";

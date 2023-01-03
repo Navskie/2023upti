@@ -9,7 +9,7 @@
                 </li>
             </ul>
             <button type="button" class="float-left btn btn-danger waves-effect md-close">Close</button>
-            <a href="reservation.php" class="float-right btn btn-primary">On Process</a>
+            <a href="backend/reserve-on-process.php?id=<?php echo $data['details_ref'] ?>" class="float-right btn btn-primary">On Process</a>
             <br>
         </div>
     </div>
