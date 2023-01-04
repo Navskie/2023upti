@@ -17,5 +17,7 @@
 
   $connect = mysqli_connect($host, $user, $pass, $dbms);
 
+  date_default_timezone_set('Asia/Manila');
+
   session_start();
 ?>

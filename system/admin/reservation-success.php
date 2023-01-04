@@ -42,7 +42,7 @@
                             </thead>
                             <tbody>
                               <?php
-                                $booking_qry = "SELECT * FROM haven_details INNER JOIN haven_booking ON details_ref = booking_ref WHERE booking_status != 'Success' ORDER BY booking_date DESC";
+                                $booking_qry = "SELECT * FROM haven_details INNER JOIN haven_booking ON details_ref = booking_ref WHERE booking_status = 'Success' ORDER BY booking_date DESC";
                                 $booking = mysqli_query($connect, $booking_qry);
                                 $number = 1;
                                 foreach ($booking as $data) {

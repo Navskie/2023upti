@@ -29,14 +29,14 @@
                           </a>
                       </li>
                       <li class=" ">
-                          <a href="dashboard-ecommerce.html">
+                          <a href="reservation-cancel.php">
                               <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                               <span class="pcoded-mtext" data-i18n="nav.dash.ecommerce">Cancel</span>
                               <span class="pcoded-mcaret"></span>
                           </a>
                       </li>
                       <li class=" ">
-                          <a href="dashboard-crm.html">
+                          <a href="reservation-success.php">
                               <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                               <span class="pcoded-mtext" data-i18n="nav.dash.crm">Success</span>
                               <span class="pcoded-mcaret"></span>

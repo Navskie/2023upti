@@ -4,7 +4,9 @@
 
   $id = $_GET['id'];
 
-  // $update_book = mysqli_query($connect, "UPDATE haven_booking SET booking_status = 'Success' WHERE booking_ref = '$id'");
+  $update_book = mysqli_query($connect, "UPDATE haven_booking SET booking_status = 'Success' WHERE booking_ref = '$id'");
+
+  // Computation
 
   $get_info = mysqli_query($connect, "SELECT * FROM haven_details WHERE details_ref = '$id'");
   $get_info_fetch = mysqli_fetch_array($get_info);
@@ -21,8 +23,40 @@
 
   $reseller_earning = $seller_fetch['reseller_earning'];
 
-  echo $new_reseller_earn = $reseller_earning + $details_amount_5;
+  $new_reseller_earn = $reseller_earning + $details_amount_5;
 
-  // header('Location: ../reservation.php');
+  $seller_update = mysqli_query($connect, "UPDATE upti_reseller SET reseller_earning = '$new_reseller_earn' WHERE reseller_code = '$details_code'");
+
+  $admin = mysqli_query($connect, "SELECT * FROM main_wallet WHERE wallet_code = 'UPTIMAIN'");
+  $admin_fetch = mysqli_fetch_array($admin);
+
+  $admin_earning = $admin_fetch['wallet'];
+
+  $new_admin_wallet = $admin_earning + $details_amount_admin;
+
+  $admin_update = mysqli_query($connect, "UPDATE main_wallet SET wallet = '$new_admin_wallet' WHERE wallet_code = 'UPTIMAIN'");
+
+  // History
+
+  $date = date('m-d-Y');
+  $time = date('h:m:s');
+
+  $date_time = $date. ' - ' .$time;
+
+  $seller_remarks = 'You received 8% commission for successfully booking from Hidden Haven.';
+
+  $seller_history = mysqli_query($connect, "INSERT INTO upti_earning
+  (earning_code, earning_date, earning_poid, earning_earnings, earning_remarks, earning_status, earning_name)
+  VALUES
+  ('$details_code', '$date_time', '$id', '$details_amount_5', '$seller_remarks', 'HIDDEN HAVEN', '$details_code')");
+
+  $admin_remarks = 'You received 2% commission for successfully booking from Hidden Haven.';
+
+  $admin_history = mysqli_query($connect, "INSERT INTO upti_earning
+  (earning_code, earning_date, earning_poid, earning_earnings, earning_remarks, earning_status, earning_name)
+  VALUES
+  ('UPTIMAIN', '$date_time', '$id', '$details_amount_admin', '$admin_remarks', 'HIDDEN HAVEN', 'UPTIMAIN')");
+
+  header('Location: ../reservation.php');
   
 ?>

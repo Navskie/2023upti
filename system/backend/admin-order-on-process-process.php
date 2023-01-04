@@ -201,8 +201,8 @@
         }
         // Inventory Check Qty
         
-        $remarks_sql2 = "INSERT INTO upti_remarks (remark_poid, remark_content, remark_name, remark_reseller, remark_date, remark_time) VALUES ('$poid', 'TRACKING NUMBER: $track', '$namex', 'Unread', '$datenow', '$time')";
-        $remarks_qry2 = mysqli_query($connect, $remarks_sql2);
+        // $remarks_sql2 = "INSERT INTO upti_remarks (remark_poid, remark_content, remark_name, remark_reseller, remark_date, remark_time) VALUES ('$poid', 'TRACKING NUMBER: $track', '$namex', 'Unread', '$datenow', '$time')";
+        // $remarks_qry2 = mysqli_query($connect, $remarks_sql2);
 
         if($_SESSION['role'] == 'BRANCH') {
     ?>
