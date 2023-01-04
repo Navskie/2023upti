@@ -41,7 +41,7 @@
                               </a>
                           </li>
                           <li>
-                              <a href="#!">
+                              <a href="../logout.php">
                                   <i class="ti-layout-sidebar-left"></i> Logout
                               </a>
                           </li>

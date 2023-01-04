@@ -3,10 +3,23 @@
 
     session_start();
 
-    $date1 = $_GET['date1'];
-    // echo '<br>';
-    // $beginTime = strtotime($date1);
-    $date2 = $_GET['date2'];
+    $date_dummy1 = $_GET['date1'];
+    $date1 = date('Y-m-d', strtotime($date_dummy1));
+    $date_dummy2 = $_GET['date2'];
+    $date2 = date('Y-m-d', strtotime($date_dummy2));
+
+    $day_count = 0;
+
+    while (0==0) {
+      $day_count++;
+      echo $date1 = date('Y-m-d', strtotime($date1 ."+1 days"));
+      echo ' - ';
+      echo $date2;
+      echo '<br>';
+      if ($date1 == $date2) {
+        break;
+      }
+    }
 
     $haven = mysqli_query($connect, "SELECT * FROM haven_package");
 
@@ -17,12 +30,6 @@
 
     $myname = $get_user_info_fetch['users_name'];
 
-    $days = 0;
-
-    while ($date1 < $date2) {
-        $date1;
-        $new_date = strtotime($date1, "+1 day");
-    }
 
     // while(0 == 0) {
     //     $days++;
