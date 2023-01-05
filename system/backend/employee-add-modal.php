@@ -23,6 +23,10 @@
             $role = 'DHL';
         } elseif ($position == 'WEBSITE') {
             $role = 'WEBSITE';
+        } elseif ($position == 'HAVEN CSR') {
+          $role = 'HAVEN CSR';
+        } elseif ($position == 'HAVEN ADMIN') {
+          $role = 'HAVEN ADMIN';
         }
 
         $check_fee = "SELECT * FROM upti_users WHERE users_username = '$us'";
@@ -68,6 +72,8 @@
                             <option value="LOGISTIC">LOGISTIC</option>
                             <option value="DHL">DHL</option>
                             <option value="WEBSITE">WEBSITE</option>
+                            <option value="HAVEN CSR">HAVEN CSR</option>
+                            <option value="HAVEN ADMIN">HAVEN ADMIN</option>
                         </select>
                     </div>
                 </div>

@@ -26,6 +26,8 @@
                             <option value="LOGISTIC">LOGISTIC</option>
                             <option value="DHL">DHL</option>
                             <option value="WEBSITE">WEBSITE</option>
+                            <option value="HAVEN CSR">HAVEN CSR</option>
+                            <option value="HAVEN ADMIN">HAVEN ADMIN</option>
                         </select>
                     </div>
                 </div>
