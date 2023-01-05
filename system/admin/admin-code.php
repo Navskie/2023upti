@@ -91,5 +91,6 @@
         </div>
     </div>
 </div>
+<?php include 'backend/details-modal.php'; ?>
 <!-- Page-body end -->
 <?php include 'include/footer.php' ?>
