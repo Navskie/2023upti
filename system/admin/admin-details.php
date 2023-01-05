@@ -26,7 +26,7 @@
             <!-- Language - Comma Decimal Place table start -->
             <div class="card">
                 <div class="card-block">
-                  <button type="button" class="btn btn-sm btn-primary waves-effect md-trigger" data-modal="details-1">Add Package</button>
+                  <button type="button" class="btn btn-sm btn-primary waves-effect md-trigger" data-modal="details-1">Add Villa Style</button>
                   <br><br>
                     <div class="dt-responsive table-responsive">
                         <table id="lang-dt" class="table table-striped table-bordered nowrap">
@@ -51,13 +51,13 @@
                                 <tr>
                                     <td class="text-center"><?php echo $number ?></td>
                                     <td class="text-center"><?php echo $data['product_title'] ?></td>
-                                    <td class="text-center"><?php echo $data['product_title'] ?></td>
-                                    <td class="text-center"><?php echo $data['product_title'] ?></td>
-                                    <td class="text-center"><?php echo $data['product_title'] ?></td>
-                                    <td class="text-center"><?php echo $data['product_title'] ?></td>
+                                    <td class="text-center"><?php echo $data['product_desc'] ?></td>
+                                    <td class="text-center"><?php echo $data['product_price'] ?></td>
+                                    <td class="text-center"><?php echo $data['product_code'] ?></td>
+                                    <td class="text-center"><?php echo $data['product_status'] ?></td>
                                     <td class="text-center">
-                                        <button type="button" class="btn btn-sm btn-default waves-effect md-trigger" data-modal="modal-1<?php echo $data['id'] ?>">On Process</button>
-                                        <button type="button" class="btn btn-sm btn-default waves-effect md-trigger" data-modal="modal-1<?php echo $data['id'] ?>">On Process</button>
+                                        <button type="button" class="btn btn-sm btn-warning waves-effect md-trigger" data-modal="modal-1<?php echo $data['id'] ?>">Edit</button>
+                                        <button type="button" class="btn btn-sm btn-danger waves-effect md-trigger" data-modal="modal-1<?php echo $data['id'] ?>">Delete</button>
                                     </td>
                                 </tr>
                               <?php
