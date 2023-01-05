@@ -3,20 +3,23 @@
 
     session_start();
 
-    $date_dummy1 = $_GET['date1'];
-    $date1 = date('Y-m-d', strtotime($date_dummy1));
-    $date_dummy2 = $_GET['date2'];
-    $date2 = date('Y-m-d', strtotime($date_dummy2));
+    $date1 = $_GET['date1'];
+    // echo '<br>';
+    // echo $date1 = date('Y-m-d', strtotime($date_dummy1));
+    // echo '<br>';
+    $date2 = $_GET['date2'];
+    // echo '<br>';
+    // $date2 = strtotime($date_dummy2);
 
     $day_count = 0;
 
     while (0==0) {
       $day_count++;
-      echo $date1 = date('Y-m-d', strtotime($date1 ."+1 days"));
-      echo ' - ';
-      echo $date2;
+      echo $date1new = date('Y-m-d', strtotime($date1 ."+1 days"));
+    //   echo ' - ';
+    //   echo $date2;
       echo '<br>';
-      if ($date1 == $date2) {
+      if ($day_count == 5) {
         break;
       }
     }
@@ -29,7 +32,6 @@
     $get_user_info_fetch = mysqli_fetch_array($get_user_info);
 
     $myname = $get_user_info_fetch['users_name'];
-
 
     // while(0 == 0) {
     //     $days++;
