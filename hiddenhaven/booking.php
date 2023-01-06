@@ -1,5 +1,9 @@
 <?php include 'include/header.php' ?>
 <?php 
+  session_start();
+
+  $year = date('Y');
+  $month = date('m'); 
   $HHcode = $_GET['HHCode'];
 
   $product = mysqli_query($connect, "SELECT * FROM haven_product WHERE product_code = '$HHcode'");
@@ -14,6 +18,16 @@
     </div>
     <div class="col-8">
       <?php
+        $myCode = $_SESSION['code'];
+        $myID = $_SESSION['uid'];
+
+        $get_ID = mysqli_query($connect, "SELECT * FROM upti_users WHERE users_code = '$myCode'");
+        $get_ID_fetch = mysqli_fetch_array($get_ID);
+
+        $count = $get_ID_fetch['users_haven'];
+
+        $poid = 'HH'.$year.$month.$myID.$count;
+
         if (isset($_POST['validate'])) {
           $newDate1 = $_POST['date1'];
           $date1 = date("m-d-Y", strtotime($newDate1));
@@ -23,11 +37,19 @@
           $correct = 0;
 
           while (0==0) {
+            
+    
+            // echo '<br>';
+            if ($date1 === $date2) {
+              break;
+            }
+
             $day_count++;
             $date1 = date('d-m-Y', strtotime($date1 ."+1 days"));
-            $get_date = date('m-d-Y', strtotime($date1));
+            echo $get_date = date('m-d-Y', strtotime($date1));
+            echo '<br>';
 
-            $date_correct = "SELECT * FROM haven_date WHERE book_ref = '$HHcode' AND book_remarks = 'Available' AND book_date = '$get_date'";
+            $date_correct = "SELECT * FROM haven_date WHERE book_ref = '$HHcode' AND book_remarks = 'Not Available' AND book_date = '$get_date'";
             $date_sql = mysqli_query($connect, $date_correct);
 
             // echo mysqli_num_rows($date_correct);
@@ -35,14 +57,24 @@
             if (mysqli_num_rows($date_sql) > 0) {
               $correct++;
             }
-    
-            // echo '<br>';
-            if ($date1 === $date2) {
-              break;
-            }
           }
 
-          echo $correct;
+          if ($correct == 0) {
+            $single_input = mysqli_query($connect, "INSERT INTO haven_date 
+            (book_poid, book_date, book_ref) VALUES 
+            ('$poid', '$newDate1', '$HHcode')");
+
+            while (0==0) {
+              $day_count++;
+              // echo '<br>';
+              if ($date1 === $date2) {
+                break;
+              }
+
+              $date1 = date('d-m-Y', strtotime($date1 ."+1 days"));
+              $get_date = date('m-d-Y', strtotime($date1));
+            }
+          }
         }
       ?>
       <form action="" method="post">

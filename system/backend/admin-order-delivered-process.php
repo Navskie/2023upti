@@ -224,11 +224,8 @@
               }
 
             } elseif ($POID_ID === 'P') {
-                if($trans_date <= $april_date) {
-                    $tot_earn = $ol_php * 0.30;
-                } else {
-                    $tot_earn = $ol_php * 0.40;
-                }
+
+                $tot_earn = $ol_php * 0.40;
                 // echo $tot_earn;
                 // echo '<br>';
                 $tax = $tot_earn * 0.05;
@@ -450,11 +447,7 @@
                 )");
                 // end earnings
             } elseif ($POID_ID == 'P') {
-                if($trans_date <= $april_date) {
-                    $tot_earn = $ol_php * 0.30;
-                } else {
-                    $tot_earn = $ol_php * 0.40;
-                }
+                $tot_earn = $ol_php * 0.40;
                 // echo '<br>';
                 $tax = $tot_earn * 0.05;
                 // echo '<br>';
