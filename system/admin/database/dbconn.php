@@ -18,6 +18,9 @@
   $connect = mysqli_connect($host, $user, $pass, $dbms);
 
   date_default_timezone_set('Asia/Manila');
+  $now = date('m-d-Y');
+  $timenow = date('h:m:s');
+  $timedate = $now.' - '.$timenow;
 
   session_start();
 ?>

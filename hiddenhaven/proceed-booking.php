@@ -11,7 +11,7 @@
 
       $day_count = 0;
 
-      $haven = mysqli_query($connect, "SELECT * FROM haven_package");
+      $haven = mysqli_query($connect, "SELECT * FROM haven_product WHERE product_status = 'Active'");
 
       $login_code = $_SESSION['code'];
   
@@ -44,14 +44,16 @@
         <figure>
             <img class="img-section" src="https://i.postimg.cc/zvhYBcht/bora-bora.jpg" alt="" />
             <div class="text-sec">
-                <h1>Central Park</h1>
+                <h1><?php echo $data['product_title'] ?></h1>
                 <br>
-                <!-- <p>
-                    Central Park is an urban park in New York City located between the
-                    Upper West and Upper East Sides of Manhattan. It is the
-                    fifth-largest park in the cit
-                </p> -->
-                <a class="linka" href="booking-details.php?id=<?php echo $id ?>&&date1=<?php echo $date1 ?>&&date2=<?php echo $date2 ?>">BOOK NOW<span>&rarr;</span></a>
+                <p>
+                  <?php echo $data['product_desc'] ?>
+                </p>
+                <h3 class="center">
+                  <?php echo $data['product_price'] ?>
+                </h3>
+                <br>
+                <a class="linka" href="">BOOK NOW<span>&rarr;</span></a>
             </div>
         </figure>
         <?php } ?>
@@ -61,4 +63,6 @@
 
     </div>
 <?php include 'include/footer.php' ?>
-<?php } ?>
+<?php 
+  }
+?>

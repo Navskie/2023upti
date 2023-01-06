@@ -29,7 +29,7 @@
                   <button type="button" class="btn btn-sm btn-primary waves-effect md-trigger" data-modal="details-1">Add Villa Style</button>
                   <br><br>
                     <div class="dt-responsive table-responsive">
-                        <table id="lang-dt" class="table table-sm table-striped table-bordered">
+                        <table id="lang-dt" class="table table-striped table-bordered nowrap">
                             <thead>
                                 <tr>
                                   <th class="text-center">#</th>
@@ -38,12 +38,12 @@
                                   <th class="text-center">Price</th>
                                   <th class="text-center">Code</th>
                                   <th class="text-center">Status</th>
-                                  <th class="text-center">Action</th>
+                                  <th class="text-center">Timestamp</th>
                                 </tr>
                             </thead>
                             <tbody>
                               <?php
-                                $booking_qry = "SELECT * FROM haven_product WHERE product_status != 'Trash' ORDER BY id DESC";
+                                $booking_qry = "SELECT * FROM haven_product WHERE product_status = 'Trash' ORDER BY id DESC";
                                 $booking = mysqli_query($connect, $booking_qry);
                                 $number = 1;
                                 foreach ($booking as $data) {
@@ -54,15 +54,10 @@
                                     <td class="text-center"><?php echo $data['product_desc'] ?></td>
                                     <td class="text-center"><?php echo $data['product_price'] ?></td>
                                     <td class="text-center"><?php echo $data['product_code'] ?></td>
-                                    <td class="text-center"><?php echo $data['product_status'] ?></td>
-                                    <td class="text-center">
-                                        <button type="button" class="btn btn-sm btn-warning waves-effect md-trigger" data-modal="edit-1<?php echo $data['product_code'] ?>">Edit</button>
-                                        <button type="button" class="btn btn-sm btn-danger waves-effect md-trigger" data-modal="trash-1<?php echo $data['product_code'] ?>">Trash</button>
-                                    </td>
+                                    <td class="text-center"><span class="badge badge-danger"><?php echo $data['product_status'] ?></span></td>
+                                    <td class="text-center"><?php echo $data['product_updated'] ?></td>
                                 </tr>
                               <?php
-                                  include 'backend/details-edit-modal.php';
-                                  include 'backend/details-delete-modal.php';
                                   $number++;
                                 }
                               ?>
@@ -75,6 +70,5 @@
         </div>
     </div>
 </div>
-<?php include 'backend/details-add-modal.php'; ?>
 <!-- Page-body end -->
 <?php include 'include/footer.php' ?>

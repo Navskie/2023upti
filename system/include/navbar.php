@@ -75,6 +75,16 @@
             <!-- <span class="float-right  text-sm">3 mins</span> -->
           </a>
           <div class="dropdown-divider"></div>
+          <a href="main-information.php" class="dropdown-item">
+            <i class="fas fa-user mr-2"></i> Hidden Haven
+            <!-- <span class="float-right  text-sm">3 mins</span> -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="main-information.php" class="dropdown-item">
+            <i class="fas fa-user mr-2"></i> Uptimised Site
+            <!-- <span class="float-right  text-sm">3 mins</span> -->
+          </a>
+          <div class="dropdown-divider"></div>
           <a href="./logout.php" class="dropdown-item">
           <i class="fas fa-sign-out-alt mr-2"></i> Logout
             <!-- <span class="float-right text-sm">Logout</span> -->
@@ -91,6 +101,16 @@
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <span class="dropdown-item dropdown-header">Account Settings</span>
+          <div class="dropdown-divider"></div>
+          <a href="main-information.php" class="dropdown-item">
+            <i class="fas fa-user mr-2"></i> Hidden Haven
+            <!-- <span class="float-right  text-sm">3 mins</span> -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="main-information.php" class="dropdown-item">
+            <i class="fas fa-user mr-2"></i> Uptimised Site
+            <!-- <span class="float-right  text-sm">3 mins</span> -->
+          </a>
           <div class="dropdown-divider"></div>
           <a href="./logout.php" class="dropdown-item">
           <i class="fas fa-sign-out-alt mr-2"></i> Logout
@@ -115,6 +135,16 @@
           <div class="dropdown-divider"></div>
           <a href="information.php" class="dropdown-item">
             <i class="fas fa-user mr-2"></i> Information
+            <!-- <span class="float-right  text-sm">3 mins</span> -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="main-information.php" class="dropdown-item">
+            <i class="fas fa-user mr-2"></i> Hidden Haven
+            <!-- <span class="float-right  text-sm">3 mins</span> -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="main-information.php" class="dropdown-item">
+            <i class="fas fa-user mr-2"></i> Uptimised Site
             <!-- <span class="float-right  text-sm">3 mins</span> -->
           </a>
           <div class="dropdown-divider"></div>
@@ -191,6 +221,16 @@
           <span class="dropdown-item dropdown-header">Account Settings</span>
           <div class="dropdown-divider"></div>
           <a href="main-information.php" class="dropdown-item">
+            <i class="fas fa-user mr-2"></i> Hidden Haven
+            <!-- <span class="float-right  text-sm">3 mins</span> -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="main-information.php" class="dropdown-item">
+            <i class="fas fa-user mr-2"></i> Uptimised Site
+            <!-- <span class="float-right  text-sm">3 mins</span> -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="main-information.php" class="dropdown-item">
             <i class="fas fa-user mr-2"></i> Information
             <!-- <span class="float-right  text-sm">3 mins</span> -->
           </a>
@@ -211,6 +251,14 @@
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <span class="dropdown-item dropdown-header">Account Settings</span>
+          <a href="main-information.php" class="dropdown-item">
+            <i class="fas fa-user mr-2"></i> Hidden Haven
+            <!-- <span class="float-right  text-sm">3 mins</span> -->
+          </a>
+          <a href="https://upticorporationph.com/" class="dropdown-item">
+            <i class="fas fa-user mr-2"></i> Uptimised Site
+            <!-- <span class="float-right  text-sm">3 mins</span> -->
+          </a>
           <div class="dropdown-divider"></div>
           <a href="./logout.php" class="dropdown-item">
           <i class="fas fa-sign-out-alt mr-2"></i> Logout
@@ -232,6 +280,16 @@
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <span class="dropdown-item dropdown-header">Account Settings</span>
+          <div class="dropdown-divider"></div>
+          <a href="main-information.php" class="dropdown-item">
+            <i class="fas fa-user mr-2"></i> Hidden Haven
+            <!-- <span class="float-right  text-sm">3 mins</span> -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="https://upticorporationph.com/" class="dropdown-item">
+            <i class="fas fa-user mr-2"></i> Uptimised Site
+            <!-- <span class="float-right  text-sm">3 mins</span> -->
+          </a>
           <div class="dropdown-divider"></div>
           <a href="information.php" class="dropdown-item">
             <i class="fas fa-user mr-2"></i> Information
@@ -274,7 +332,18 @@
           <span class="dropdown-item dropdown-header">Account Settings</span>
           <div class="dropdown-divider"></div>
           <a href="main-information.php" class="dropdown-item">
+            
             <i class="fas fa-user mr-2"></i> Information
+            <!-- <span class="float-right  text-sm">3 mins</span> -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="main-information.php" class="dropdown-item">
+            <i class="fas fa-user mr-2"></i> Hidden Haven
+            <!-- <span class="float-right  text-sm">3 mins</span> -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="main-information.php" class="dropdown-item">
+            <i class="fas fa-user mr-2"></i> Uptimised Site
             <!-- <span class="float-right  text-sm">3 mins</span> -->
           </a>
           <div class="dropdown-divider"></div>
@@ -318,6 +387,17 @@
           <div class="dropdown-divider"></div>
           <a href="information.php" class="dropdown-item">
             <i class="fas fa-user mr-2"></i> Information
+            <!-- <span class="float-right  text-sm">3 mins</span> -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="main-information.php" class="dropdown-item">
+            <i class="fas fa-user mr-2"></i> Hidden Haven
+            <!-- <span class="float-right  text-sm">3 mins</span> -->
+          </a>
+          <!-- <div class="dropdown-divider"></div> -->
+          <div class="dropdown-divider"></div>
+          <a href="main-information.php" class="dropdown-item">
+            <i class="fas fa-user mr-2"></i> Uptimised Site
             <!-- <span class="float-right  text-sm">3 mins</span> -->
           </a>
           <div class="dropdown-divider"></div>

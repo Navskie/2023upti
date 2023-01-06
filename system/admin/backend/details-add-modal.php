@@ -7,7 +7,6 @@
 
   $year = date('y');
   $month = date('m');
-  $date = date('m-d-Y');
 
   $codes = "HR".$year.$month.$counts;
 
@@ -18,11 +17,16 @@
     $price = $_POST['price'];
     $status = $_POST['status'];
 
-    $insert_style = mysqli_query($connect, "INSERT INTO haven_product
-    (product_title, product_desc, product_price, product_code, product_status, product_updated)
-    VALUES
-    ('$title', '$desc', '$price', '$codes', '$status', '$date')
-    ");
+    if ($title == '' || $desc == '' || $price == '' || $status == '' || $codes == '') {
+      echo '<script>alert("All fields are required");window.location.href = "admin-details.php";</script>';
+    } else {
+      $insert_style = mysqli_query($connect, "INSERT INTO haven_product
+      (product_title, product_desc, product_price, product_code, product_status, product_updated)
+      VALUES
+      ('$title', '$desc', '$price', '$codes', '$status', '$timedate')
+      ");
+      echo '<script>window.location.href = "admin-details.php";</script>';
+    }
 
   }
 ?>
@@ -36,28 +40,28 @@
               <div class="col-6">
                 <div class="form-group">
                   <label>Title</label>
-                  <input type="text" name="title" class="form-control">
+                  <input type="text" name="title" class="form-control" required autocomplete="OFF">
                 </div>
               </div>
 
               <div class="col-6">
                 <div class="form-group">
                   <label>Code</label>
-                  <input disabled type="text" value="<?php echo $codes ?>" name="havencode" class="form-control">
+                  <input disabled type="text" value="<?php echo $codes ?>" name="havencode" class="form-control" required autocomplete="OFF">
                 </div>
               </div>
 
               <div class="col-12">
                 <div class="form-group">
                   <label>Description</label>
-                  <input type="text" name="desc" class="form-control">
+                  <input type="text" name="desc" class="form-control" required autocomplete="OFF">
                 </div>
               </div>
 
               <div class="col-6">
                 <div class="form-group">
                   <label>Price</label>
-                  <input type="text" name="price" class="form-control">
+                  <input type="text" name="price" class="form-control" required autocomplete="OFF">
                 </div>
               </div>
 
