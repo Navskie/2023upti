@@ -1,3 +1,4 @@
+<?php include './../include/db.php' ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -26,6 +27,7 @@
             <li><a class="navbar-link" href="#">Gallery</a></li>
             <li><a class="navbar-link" href="#">Rewards</a></li>
             <li><a class="navbar-link" href="#">Contact Us</a></li>
+            <li><a class="navbar-link" href="../index.php">Uptimised</a></li>
             </ul>
         </nav>
 

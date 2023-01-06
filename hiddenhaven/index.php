@@ -1,18 +1,37 @@
 <?php include 'include/header.php' ?>
 
-<form action="proceed-booking.php" class="booknow" method="POST">
-    <div class="box">
-        <img src="haven.jpg" alt="" class="haven same">
+  <!-- slide show -->
+
+  <!-- slide show ENDDDDDDD -->
+
+  <?php 
+    $haven = mysqli_query($connect, "SELECT * FROM haven_product WHERE product_status = 'Active'");
+  ?>
+    <section>
+        <?php foreach ($haven as $data) { ?>
+        <?php
+            $id = $data['id'];
+        ?>
+        <figure>
+            <img class="img-section" src="https://i.postimg.cc/zvhYBcht/bora-bora.jpg" alt="" />
+            <div class="text-sec">
+                <h1><?php echo $data['product_title'] ?></h1>
+                <br>
+                <p>
+                  <?php echo $data['product_desc'] ?>
+                </p>
+                <h3 class="text-center">
+                  <?php echo $data['product_price'] ?>
+                </h3>
+                <br>
+                <a class="linka" href="booking.php?HHCode=<?php echo $data['product_code'] ?>">BOOK NOW<span>&rarr;</span></a>
+            </div>
+        </figure>
+        <?php } ?>
+    </section>
+
+    <div class="container">
+      
     </div>
-    <div class="box">
-      <input type="date" name="date1" id="" class="same date_format">
-    </div>
-    <div class="box">
-      <input type="date" name="date2" id="" class="same date_format">
-    </div>
-    <div class="box">
-        <button class="form-control same button" name="booknow">BOOK NOW</button>
-    </div>
-</form>
 
 <?php include 'include/footer.php' ?>
