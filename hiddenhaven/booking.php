@@ -31,14 +31,17 @@
         if (isset($_POST['validate'])) {
           $newDate1 = $_POST['date1'];
           $date1 = date("m-d-Y", strtotime($newDate1));
+          $date4 = date("m-d-Y", strtotime($newDate1));
+          
+          $testdate = date("m-d-Y", strtotime($newDate1));
           $newDate2 = $_POST['date2'];
           $date2 = date("d-m-Y", strtotime($newDate2));
+          $date3 = date("d-m-Y", strtotime($newDate2));
           $day_count = 0;
           $correct = 0;
 
           while (0==0) {
             
-    
             // echo '<br>';
             if ($date1 === $date2) {
               break;
@@ -46,8 +49,8 @@
 
             $day_count++;
             $date1 = date('d-m-Y', strtotime($date1 ."+1 days"));
-            echo $get_date = date('m-d-Y', strtotime($date1));
-            echo '<br>';
+            $get_date = date('m-d-Y', strtotime($date1));
+            // echo '<br>';
 
             $date_correct = "SELECT * FROM haven_date WHERE book_ref = '$HHcode' AND book_remarks = 'Not Available' AND book_date = '$get_date'";
             $date_sql = mysqli_query($connect, $date_correct);
@@ -59,20 +62,35 @@
             }
           }
 
-          if ($correct == 0) {
+          $date_correct2 = "SELECT * FROM haven_date WHERE book_ref = '$HHcode' AND book_remarks = 'Not Available' AND book_date = '$testdate'";
+          $date_sql2 = mysqli_query($connect, $date_correct2);
+          if (mysqli_num_rows($date_sql2) > 0) {
+            $sum_booking = $correct + 1;
+          } else {
+            $sum_booking = $correct + 0;
+          }
+
+          if ($sum_booking == 0) {
             $single_input = mysqli_query($connect, "INSERT INTO haven_date 
             (book_poid, book_date, book_ref) VALUES 
-            ('$poid', '$newDate1', '$HHcode')");
+            ('$poid', '$date4', '$HHcode')");
 
-            while (0==0) {
+            while (1==1) {
               $day_count++;
               // echo '<br>';
-              if ($date1 === $date2) {
+              if ($date4 === $date3) {
                 break;
               }
 
-              $date1 = date('d-m-Y', strtotime($date1 ."+1 days"));
-              $get_date = date('m-d-Y', strtotime($date1));
+              $date4 = date('d-m-Y', strtotime($date4 ."+1 days"));
+              $get_date = date('m-d-Y', strtotime($date4));
+
+              $_SESSION['BookDate'] = $testdate;
+              $_SESSION['BookDate2'] = $get_date;
+
+              $many_input = mysqli_query($connect, "INSERT INTO haven_date 
+              (book_poid, book_date, book_ref) VALUES 
+              ('$poid', '$get_date', '$HHcode')");
             }
           }
         }
@@ -103,7 +121,21 @@
           </div>
         </div>
       </form>
+      <?php
+        if ($_SESSION['BookDate'] == '' && $_SESSION['BookDate2'] == '') {
+      ?>
+        hindi available ang style na ito sa araw na sinelect mo hahaha
+      <?php
+        } else {
+          echo $new_date_booking1 = $_SESSION['BookDate'];
+          echo $new_date_booking2 = $_SESSION['BookDate2'];
+          // unset($_SESSION['BookDate']);
+          // unset($_SESSION['BookDate2']);
+      ?>
 
+      <?php
+        }
+      ?>
     </div>
   </div>
 <?php include 'include/footer.php' ?>

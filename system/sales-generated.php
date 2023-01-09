@@ -122,7 +122,7 @@ if($export_num > 0) {
     // Header for  Download
     // if (! headers_sent()) {
     header("Content-Type: application/xls");
-    header("Content-Disposition: attachment; filename=Sales_Report_".$date1.'-'.$date2.".xls");
+    header("Content-Disposition: attachment; filename=Sales_Report.xls");
     header("Pragma: no-cache");
     header("Expires: 0");
     // }

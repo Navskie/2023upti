@@ -42,8 +42,6 @@
         $stockist_f = mysqli_fetch_array($stockist_stmt);
         $stockist = $stockist_f['stockist_code'];
 
-        $april_date = '04-11-2022';
-
         // EARNINGS 
         $order_sql2 = "SELECT SUM(ol_php) AS EARN FROM upti_order_list WHERE ol_poid = '$poid'";
         $order_qry2 = mysqli_query($connect, $order_sql2);
@@ -232,11 +230,9 @@
                 // echo '<br>';
                 $sales_earnings = $tot_earn - $tax;
     
-                if($trans_date <= $april_date) {
-                    $remarks = 'You Received 30% Comission Product Worth of '.$amount.' ['.$country.']';
-                } else {
-                    $remarks = 'You Received 40% Comission Product Worth of '.$amount.' ['.$country.']';
-                }
+
+                $remarks = 'You Received 40% Comission Product Worth of '.$amount.' ['.$country.']';
+
                 
                 $creator_earn = $remain_points + $sales_earnings;
                 // echo '<br>';
@@ -453,11 +449,8 @@
                 // echo '<br>';
                 $sales_earnings = $tot_earn - $tax;
                 // echo '<br>';
-                if($trans_date <= $april_date) {
-                    $remarks = 'You Received 30% Comission Product Worth of '.$amount.' ['.$country.']';
-                } else {
-                    $remarks = 'You Received 40% Comission Product Worth of '.$amount.' ['.$country.']';
-                }
+                $remarks = 'You Received 40% Comission Product Worth of '.$amount.' ['.$country.']';
+
                 // echo '<br>';
                 $creator_earn = $remain_points + $sales_earnings;
                 // echo '<br>';
