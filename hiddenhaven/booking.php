@@ -40,92 +40,69 @@
           $date1 = date("d-m-Y", strtotime($newDate1));
           $date4 = date("m-d-Y", strtotime($newDate1));
           
-        // $testdate = date("m-d-Y", strtotime($newDate1));
           $newDate2 = $_POST['date2'];
           $date2 = date("d-m-Y", strtotime($newDate2));
-        //   $date3 = date("d-m-Y", strtotime($newDate2));
-        //   $day_count = 0;
-        //   $correct = 0;
 
-        $text1 = date_create($date1);
-        $text2 = date_create($date2);
+          $text1 = date_create($date1);
+          $text2 = date_create($date2);
 
-        $sum = date_diff($text1, $text2);
+          $sum = date_diff($text1, $text2);
 
-        $result = $sum->format("%a");
-        $ok = 0;
+          $result = $sum->format("%a");
+          $ok = 0;
+          $nessy = 0;
 
-        while ($ok != $result) {
-          // echo 'one';
-          // echo '<br>';
-          if ($ok == 0) {
-            echo $date4;
-            echo '<br>';
+          while ($ok != $result) {
+            // echo 'one';
+            // echo '<br>';
+            if ($ok == 0) {
+              // echo $date4;
+              // echo '<br>';
+
+              $validation_1 = mysqli_query($connect, "SELECT * FROM haven_date WHERE book_remarks = 'Not Available' AND book_ref = '$HHcode' AND book_date = '$date4'");
+
+              if (mysqli_num_rows($validation_1) > 0) {
+                $nessy = $nessy + 1;
+              } else {
+                // echo 'blee';
+                $insert_into = mysqli_query($connect, "INSERT INTO haven_date (book_poid, book_date, book_ref) VALUES ('$poid', '$date4', '$HHcode')");
+              }
+
+            }
+
+            $date1 = date('d-m-Y', strtotime($date1 ."+1 days"));
+            $get_date = date('m-d-Y', strtotime($date1));
+
+            $validation_2 = mysqli_query($connect, "SELECT * FROM haven_date WHERE book_remarks = 'Not Available' AND book_ref = '$HHcode' AND book_date = '$get_date'");
+
+            if (mysqli_num_rows($validation_2) > 0) {
+              $nessy = $nessy + 1;
+            } else {
+              // echo 'blee';
+              $insert_into = mysqli_query($connect, "INSERT INTO haven_date (book_poid, book_date, book_ref) VALUES ('$poid', '$get_date', '$HHcode')");
+            }
+            // echo '<br>';
+            $ok++;
           }
 
-          $date1 = date('d-m-Y', strtotime($date1 ."+1 days"));
-          echo $get_date = date('m-d-Y', strtotime($date1));
-          echo '<br>';
-          $ok++;
-        }
+          // echo $nessy;
 
-        //   while (0==0) {
-            
-        //     // echo '<br>';
-        //     if ($date1 === $date2) {
-        //       break;
-        //     }
+          if ($nessy > 0) {
+            $_SESSION['date1banene'] = '';
+            $_SESSION['date2banene'] = '';
 
-        //     $day_count++;
-        //     $date1 = date('d-m-Y', strtotime($date1 ."+1 days"));
-        //     $get_date = date('m-d-Y', strtotime($date1));
-        //     // echo '<br>';
-
-        //     $date_correct = "SELECT * FROM haven_date WHERE book_ref = '$HHcode' AND book_remarks = 'Not Available' AND book_date = '$get_date'";
-        //     $date_sql = mysqli_query($connect, $date_correct);
-
-        //     // echo mysqli_num_rows($date_correct);
-
-        //     if (mysqli_num_rows($date_sql) > 0) {
-        //       $correct++;
-        //     }
-        //   }
-
-        //   $date_correct2 = "SELECT * FROM haven_date WHERE book_ref = '$HHcode' AND book_remarks = 'Not Available' AND book_date = '$testdate'";
-        //   $date_sql2 = mysqli_query($connect, $date_correct2);
-        //   if (mysqli_num_rows($date_sql2) > 0) {
-        //     $sum_booking = $correct + 1;
-        //   } else {
-        //     $sum_booking = $correct + 0;
-        //   }
-
-        //   if ($sum_booking == 0) {
-        //     $single_input = mysqli_query($connect, "INSERT INTO haven_date 
-        //     (book_poid, book_date, book_ref) VALUES 
-        //     ('$poid', '$date4', '$HHcode')");
-
-        //     while (1==1) {
-        //       $day_count++;
-        //       // echo '<br>';
-        //       if ($date4 === $date3) {
-        //         break;
-        //       }
-
-        //       $date4 = date('d-m-Y', strtotime($date4 ."+1 days"));
-        //       $get_date = date('m-d-Y', strtotime($date4));
-
-        //       $_SESSION['BookDate'] = $testdate;
-        //       $_SESSION['BookDate2'] = $get_date;
-
-        //       $many_input = mysqli_query($connect, "INSERT INTO haven_date 
-        //       (book_poid, book_date, book_ref) VALUES 
-        //       ('$poid', '$get_date', '$HHcode')");
-        //     }
-        //   }
+            // echo 'ble';
+            ?>
+            <script>alert('Date from <?php echo $date4. ' to ' .$get_date ?> is not available');window.location.href = 'booking.php?HHCode=<?php echo $HHcode ?>'</script>
+            <?php
+          } else {
+            $_SESSION['date1banene'] = $date4;
+            $_SESSION['date2banene'] = $get_date;
+          }
         }
       ?>
       <?php
-        if ($_SESSION['BookDate'] == '' && $_SESSION['BookDate2'] == '') {
+        if ($_SESSION['date1banene'] == '' && $_SESSION['date2banene'] == '') {
       ?>
         <form action="" method="post">
           <div class="row">
@@ -155,8 +132,8 @@
         </form>
       <?php
         } else {
-          $new_date_booking1 = $_SESSION['BookDate'];
-          $new_date_booking2 = $_SESSION['BookDate2'];
+          $new_date_booking1 = $_SESSION['date1banene'];
+          $new_date_booking2 = $_SESSION['date2banene'];
           // unset($_SESSION['BookDate']);
           // unset($_SESSION['BookDate2']);
       ?>
@@ -167,13 +144,13 @@
         <div class="col-12"><hr></div>
         <div class="col-4">
           <div class="form-group">
-            <h2>Date From</h2>
+            <h3 class="text-center">DATE FROM</h2>
             <h1 class="text-center"><?php echo $new_date_booking1 ?></h1>
           </div>
         </div>
         <div class="col-4">
           <div class="form-group">
-            <h2>Date To</h2>
+            <h3 class="text-center">DATE TO</h2>
             <h1 class="text-center"><?php echo $new_date_booking2 ?></h1>
           </div>
         </div>
@@ -185,13 +162,13 @@
         </div>
       </div>
       <hr>
-      <form action="" method="post">
+      <form action="booking-process.php?HHcodes=<?php echo $HHcode ?>&&poid=<?php echo $poid ?>" method="post">
         <h2>INFORMATION SHEET</h2>
         <br>
         <div class="row">
           <div class="col-6">
             <label for="" style="font-size: 15px">Time Slot</label>
-            <input type="text" name="timeslot" class="form-control" style="border: 1px solid #000; border-radius: 0; padding: 12px 15px; font-size: 12px" autocomplete="OFF" required>
+            <input type="time" name="timeslot" class="form-control" style="border: 1px solid #000; border-radius: 0; padding: 12px 15px; font-size: 12px" autocomplete="OFF" required>
           </div>
           <div class="col-6">
             <label for="" style="font-size: 15px">Total Pax</label>
@@ -205,47 +182,7 @@
           <div class="col-6">
             <br>
             <label for="" style="font-size: 15px">Full Name</label>
-            <input type="text" name="fname2" class="form-control" style="border: 1px solid #000; border-radius: 0; padding: 12px 15px; font-size: 12px" autocomplete="OFF" required>
-          </div>
-          <div class="col-6">
-            <br>
-            <label for="" style="font-size: 15px">Full Name</label>
-            <input type="text" name="fname3" class="form-control" style="border: 1px solid #000; border-radius: 0; padding: 12px 15px; font-size: 12px" autocomplete="OFF" required>
-          </div>
-          <div class="col-6">
-            <br>
-            <label for="" style="font-size: 15px">Full Name</label>
-            <input type="text" name="fname4" class="form-control" style="border: 1px solid #000; border-radius: 0; padding: 12px 15px; font-size: 12px" autocomplete="OFF" required>
-          </div>
-          <div class="col-6">
-            <br>
-            <label for="" style="font-size: 15px">Full Name</label>
-            <input type="text" name="fname5" class="form-control" style="border: 1px solid #000; border-radius: 0; padding: 12px 15px; font-size: 12px" autocomplete="OFF" required>
-          </div>
-          <div class="col-6">
-            <br>
-            <label for="" style="font-size: 15px">Full Name</label>
-            <input type="text" name="fname6" class="form-control" style="border: 1px solid #000; border-radius: 0; padding: 12px 15px; font-size: 12px" autocomplete="OFF" required>
-          </div>
-          <div class="col-6">
-            <br>
-            <label for="" style="font-size: 15px">Full Name</label>
-            <input type="text" name="fname7" class="form-control" style="border: 1px solid #000; border-radius: 0; padding: 12px 15px; font-size: 12px" autocomplete="OFF" required>
-          </div>
-          <div class="col-6">
-            <br>
-            <label for="" style="font-size: 15px">Full Name</label>
-            <input type="text" name="fname8" class="form-control" style="border: 1px solid #000; border-radius: 0; padding: 12px 15px; font-size: 12px" autocomplete="OFF" required>
-          </div>
-          <div class="col-6">
-            <br>
-            <label for="" style="font-size: 15px">Full Name</label>
-            <input type="text" name="fname9" class="form-control" style="border: 1px solid #000; border-radius: 0; padding: 12px 15px; font-size: 12px" autocomplete="OFF" required>
-          </div>
-          <div class="col-6">
-            <br>
-            <label for="" style="font-size: 15px">Full Name</label>
-            <input type="text" name="fname10" class="form-control" style="border: 1px solid #000; border-radius: 0; padding: 12px 15px; font-size: 12px" autocomplete="OFF" required>
+            <input type="text" name="fname1" class="form-control" style="border: 1px solid #000; border-radius: 0; padding: 12px 15px; font-size: 12px" autocomplete="OFF" required>
           </div>
           <div class="col-12">
             <div class="form-group">
