@@ -33,73 +33,95 @@
 
         $sum = date_diff($text1, $text2);
 
-        echo $result = $sum->format("%a");
+        $result = $sum->format("%a");
 
         if (isset($_POST['validate'])) {
           $newDate1 = $_POST['date1'];
-          $date1 = date("m-d-Y", strtotime($newDate1));
+          $date1 = date("d-m-Y", strtotime($newDate1));
           $date4 = date("m-d-Y", strtotime($newDate1));
           
-          $testdate = date("m-d-Y", strtotime($newDate1));
+        // $testdate = date("m-d-Y", strtotime($newDate1));
           $newDate2 = $_POST['date2'];
           $date2 = date("d-m-Y", strtotime($newDate2));
-          $date3 = date("d-m-Y", strtotime($newDate2));
-          $day_count = 0;
-          $correct = 0;
+        //   $date3 = date("d-m-Y", strtotime($newDate2));
+        //   $day_count = 0;
+        //   $correct = 0;
 
-          while (0==0) {
+        $text1 = date_create($date1);
+        $text2 = date_create($date2);
+
+        $sum = date_diff($text1, $text2);
+
+        $result = $sum->format("%a");
+        $ok = 0;
+
+        while ($ok != $result) {
+          // echo 'one';
+          // echo '<br>';
+          if ($ok == 0) {
+            echo $date4;
+            echo '<br>';
+          }
+
+          $date1 = date('d-m-Y', strtotime($date1 ."+1 days"));
+          echo $get_date = date('m-d-Y', strtotime($date1));
+          echo '<br>';
+          $ok++;
+        }
+
+        //   while (0==0) {
             
-            // echo '<br>';
-            if ($date1 === $date2) {
-              break;
-            }
+        //     // echo '<br>';
+        //     if ($date1 === $date2) {
+        //       break;
+        //     }
 
-            $day_count++;
-            $date1 = date('d-m-Y', strtotime($date1 ."+1 days"));
-            $get_date = date('m-d-Y', strtotime($date1));
-            // echo '<br>';
+        //     $day_count++;
+        //     $date1 = date('d-m-Y', strtotime($date1 ."+1 days"));
+        //     $get_date = date('m-d-Y', strtotime($date1));
+        //     // echo '<br>';
 
-            $date_correct = "SELECT * FROM haven_date WHERE book_ref = '$HHcode' AND book_remarks = 'Not Available' AND book_date = '$get_date'";
-            $date_sql = mysqli_query($connect, $date_correct);
+        //     $date_correct = "SELECT * FROM haven_date WHERE book_ref = '$HHcode' AND book_remarks = 'Not Available' AND book_date = '$get_date'";
+        //     $date_sql = mysqli_query($connect, $date_correct);
 
-            // echo mysqli_num_rows($date_correct);
+        //     // echo mysqli_num_rows($date_correct);
 
-            if (mysqli_num_rows($date_sql) > 0) {
-              $correct++;
-            }
-          }
+        //     if (mysqli_num_rows($date_sql) > 0) {
+        //       $correct++;
+        //     }
+        //   }
 
-          $date_correct2 = "SELECT * FROM haven_date WHERE book_ref = '$HHcode' AND book_remarks = 'Not Available' AND book_date = '$testdate'";
-          $date_sql2 = mysqli_query($connect, $date_correct2);
-          if (mysqli_num_rows($date_sql2) > 0) {
-            $sum_booking = $correct + 1;
-          } else {
-            $sum_booking = $correct + 0;
-          }
+        //   $date_correct2 = "SELECT * FROM haven_date WHERE book_ref = '$HHcode' AND book_remarks = 'Not Available' AND book_date = '$testdate'";
+        //   $date_sql2 = mysqli_query($connect, $date_correct2);
+        //   if (mysqli_num_rows($date_sql2) > 0) {
+        //     $sum_booking = $correct + 1;
+        //   } else {
+        //     $sum_booking = $correct + 0;
+        //   }
 
-          if ($sum_booking == 0) {
-            $single_input = mysqli_query($connect, "INSERT INTO haven_date 
-            (book_poid, book_date, book_ref) VALUES 
-            ('$poid', '$date4', '$HHcode')");
+        //   if ($sum_booking == 0) {
+        //     $single_input = mysqli_query($connect, "INSERT INTO haven_date 
+        //     (book_poid, book_date, book_ref) VALUES 
+        //     ('$poid', '$date4', '$HHcode')");
 
-            while (1==1) {
-              $day_count++;
-              // echo '<br>';
-              if ($date4 === $date3) {
-                break;
-              }
+        //     while (1==1) {
+        //       $day_count++;
+        //       // echo '<br>';
+        //       if ($date4 === $date3) {
+        //         break;
+        //       }
 
-              $date4 = date('d-m-Y', strtotime($date4 ."+1 days"));
-              $get_date = date('m-d-Y', strtotime($date4));
+        //       $date4 = date('d-m-Y', strtotime($date4 ."+1 days"));
+        //       $get_date = date('m-d-Y', strtotime($date4));
 
-              $_SESSION['BookDate'] = $testdate;
-              $_SESSION['BookDate2'] = $get_date;
+        //       $_SESSION['BookDate'] = $testdate;
+        //       $_SESSION['BookDate2'] = $get_date;
 
-              $many_input = mysqli_query($connect, "INSERT INTO haven_date 
-              (book_poid, book_date, book_ref) VALUES 
-              ('$poid', '$get_date', '$HHcode')");
-            }
-          }
+        //       $many_input = mysqli_query($connect, "INSERT INTO haven_date 
+        //       (book_poid, book_date, book_ref) VALUES 
+        //       ('$poid', '$get_date', '$HHcode')");
+        //     }
+        //   }
         }
       ?>
       <?php
