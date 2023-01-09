@@ -11,7 +11,7 @@
 ?>
   <br>
   <div class="row">
-    <div class="col-4">
+    <div class="col-4" style="border-right: 1px solid #333">
       <img class="img-section" src="https://i.postimg.cc/zvhYBcht/bora-bora.jpg" alt="" /> <br><br>
       <h2 class="text-center"><?php echo $product_fetch['product_title'] ?></h2> <br>
       <h1 class="float-right font-weight-bold"><?php echo number_format($product_fetch['product_price'], '2') ?></h1>
@@ -27,6 +27,13 @@
         $count = $get_ID_fetch['users_haven'];
 
         $poid = 'HH'.$year.$month.$myID.$count;
+
+        $text1 = date_create('19-01-2023');
+        $text2 = date_create('28-02-2023');
+
+        $sum = date_diff($text1, $text2);
+
+        echo $result = $sum->format("%a");
 
         if (isset($_POST['validate'])) {
           $newDate1 = $_POST['date1'];
@@ -95,44 +102,138 @@
           }
         }
       ?>
-      <form action="" method="post">
-        <div class="row">
-          <div class="col-12">
-            <h2 class="text-center">Check Available Date</h2>
-          </div>
-          <div class="col-12"><hr></div>
-          <div class="col-4">
-            <div class="form-group">
-              <h2>Date From</h2>
-              <input type="date" name="date1" id="" class="form-control" style="padding: 10px 14px; font-size: 12px">
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="form-group">
-              <h2>Date To</h2>
-              <input type="date" name="date2" id="" class="form-control" style="padding: 10px 14px; font-size: 12px">
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="form-group">
-              <h2 style="color: #fff">Action</h2>
-              <button class="btn btn-success form-control" name="validate" style="padding: 10px 14px; font-size: 12px">Check Date</button>
-            </div>
-          </div>
-        </div>
-      </form>
       <?php
         if ($_SESSION['BookDate'] == '' && $_SESSION['BookDate2'] == '') {
       ?>
-        hindi available ang style na ito sa araw na sinelect mo hahaha
+        <form action="" method="post">
+          <div class="row">
+            <div class="col-12">
+              <h2 class="text-center">Check Available Date</h2>
+            </div>
+            <div class="col-12"><hr></div>
+            <div class="col-4">
+              <div class="form-group">
+                <h2>Date From</h2>
+                <input type="date" name="date1" id="" class="form-control" style="padding: 10px 14px; font-size: 12px">
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="form-group">
+                <h2>Date To</h2>
+                <input type="date" name="date2" id="" class="form-control" style="padding: 10px 14px; font-size: 12px">
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="form-group">
+                <h2 style="color: #fff">Action</h2>
+                <button class="btn btn-success form-control" name="validate" style="padding: 10px 14px; font-size: 12px">Check Date</button>
+              </div>
+            </div>
+          </div>
+        </form>
       <?php
         } else {
-          echo $new_date_booking1 = $_SESSION['BookDate'];
-          echo $new_date_booking2 = $_SESSION['BookDate2'];
+          $new_date_booking1 = $_SESSION['BookDate'];
+          $new_date_booking2 = $_SESSION['BookDate2'];
           // unset($_SESSION['BookDate']);
           // unset($_SESSION['BookDate2']);
       ?>
-
+      <div class="row">
+        <div class="col-12">
+          <h2 class="text-center">Booking Date</h2>
+        </div>
+        <div class="col-12"><hr></div>
+        <div class="col-4">
+          <div class="form-group">
+            <h2>Date From</h2>
+            <h1 class="text-center"><?php echo $new_date_booking1 ?></h1>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="form-group">
+            <h2>Date To</h2>
+            <h1 class="text-center"><?php echo $new_date_booking2 ?></h1>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="form-group">
+            <h2 style="color: #fff">Action</h2>
+            <a href="booking-cancel.php?id=<?php echo $poid ?>&&HHcode=<?php echo $HHcode ?>" class="btn btn-danger form-control" name="validate" style="padding: 10px 14px; font-size: 12px">Clear</a>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <form action="" method="post">
+        <h2>INFORMATION SHEET</h2>
+        <br>
+        <div class="row">
+          <div class="col-6">
+            <label for="" style="font-size: 15px">Time Slot</label>
+            <input type="text" name="timeslot" class="form-control" style="border: 1px solid #000; border-radius: 0; padding: 12px 15px; font-size: 12px" autocomplete="OFF" required>
+          </div>
+          <div class="col-6">
+            <label for="" style="font-size: 15px">Total Pax</label>
+            <input type="text" name="totalpax" class="form-control" style="border: 1px solid #000; border-radius: 0; padding: 12px 15px; font-size: 12px" autocomplete="OFF" required>
+          </div>
+          <div class="col-6">
+            <br>
+            <label for="" style="font-size: 15px">Full Name</label>
+            <input type="text" name="fname1" class="form-control" style="border: 1px solid #000; border-radius: 0; padding: 12px 15px; font-size: 12px" autocomplete="OFF" required>
+          </div>
+          <div class="col-6">
+            <br>
+            <label for="" style="font-size: 15px">Full Name</label>
+            <input type="text" name="fname2" class="form-control" style="border: 1px solid #000; border-radius: 0; padding: 12px 15px; font-size: 12px" autocomplete="OFF" required>
+          </div>
+          <div class="col-6">
+            <br>
+            <label for="" style="font-size: 15px">Full Name</label>
+            <input type="text" name="fname3" class="form-control" style="border: 1px solid #000; border-radius: 0; padding: 12px 15px; font-size: 12px" autocomplete="OFF" required>
+          </div>
+          <div class="col-6">
+            <br>
+            <label for="" style="font-size: 15px">Full Name</label>
+            <input type="text" name="fname4" class="form-control" style="border: 1px solid #000; border-radius: 0; padding: 12px 15px; font-size: 12px" autocomplete="OFF" required>
+          </div>
+          <div class="col-6">
+            <br>
+            <label for="" style="font-size: 15px">Full Name</label>
+            <input type="text" name="fname5" class="form-control" style="border: 1px solid #000; border-radius: 0; padding: 12px 15px; font-size: 12px" autocomplete="OFF" required>
+          </div>
+          <div class="col-6">
+            <br>
+            <label for="" style="font-size: 15px">Full Name</label>
+            <input type="text" name="fname6" class="form-control" style="border: 1px solid #000; border-radius: 0; padding: 12px 15px; font-size: 12px" autocomplete="OFF" required>
+          </div>
+          <div class="col-6">
+            <br>
+            <label for="" style="font-size: 15px">Full Name</label>
+            <input type="text" name="fname7" class="form-control" style="border: 1px solid #000; border-radius: 0; padding: 12px 15px; font-size: 12px" autocomplete="OFF" required>
+          </div>
+          <div class="col-6">
+            <br>
+            <label for="" style="font-size: 15px">Full Name</label>
+            <input type="text" name="fname8" class="form-control" style="border: 1px solid #000; border-radius: 0; padding: 12px 15px; font-size: 12px" autocomplete="OFF" required>
+          </div>
+          <div class="col-6">
+            <br>
+            <label for="" style="font-size: 15px">Full Name</label>
+            <input type="text" name="fname9" class="form-control" style="border: 1px solid #000; border-radius: 0; padding: 12px 15px; font-size: 12px" autocomplete="OFF" required>
+          </div>
+          <div class="col-6">
+            <br>
+            <label for="" style="font-size: 15px">Full Name</label>
+            <input type="text" name="fname10" class="form-control" style="border: 1px solid #000; border-radius: 0; padding: 12px 15px; font-size: 12px" autocomplete="OFF" required>
+          </div>
+          <div class="col-12">
+            <div class="form-group">
+              <h2 style="color: #fff">Action</h2>
+              <button class="btn btn-success form-control" name="validate" style="padding: 10px 14px; font-size: 12px">BOOK NOW</button>
+            </div>
+          </div>
+        </div>
+        <br>
+      </form>
       <?php
         }
       ?>
