@@ -14,7 +14,9 @@
     <div class="col-4" style="border-right: 1px solid #333">
       <img class="img-section" src="https://i.postimg.cc/zvhYBcht/bora-bora.jpg" alt="" /> <br><br>
       <h2 class="text-center"><?php echo $product_fetch['product_title'] ?></h2> <br>
-      <h1 class="float-right font-weight-bold"><?php echo number_format($product_fetch['product_price'], '2') ?></h1>
+      <h1 class="text-center font-weight-bold"><?php echo number_format($product_fetch['product_price'], '2') ?></h1>
+      <br>
+      <span style="font-size: 18px">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam explicabo ullam porro animi adipisci repudiandae deleniti cupiditate ab recusandae, vitae inventore veniam beatae necessitatibus error molestiae id. Dolores, corporis recusandae?</span>
     </div>
     <div class="col-8">
       <?php
@@ -49,6 +51,7 @@
           $sum = date_diff($text1, $text2);
 
           $result = $sum->format("%a");
+
           $ok = 0;
           $nessy = 0;
 
@@ -83,6 +86,11 @@
             }
             // echo '<br>';
             $ok++;
+          }
+
+          
+          if($newDate1 === $newDate2) {
+            $get_date = $date4;
           }
 
           // echo $nessy;
@@ -165,33 +173,111 @@
       <form action="booking-process.php?HHcodes=<?php echo $HHcode ?>&&poid=<?php echo $poid ?>" method="post">
         <h2>INFORMATION SHEET</h2>
         <br>
+        <?php
+          $get_booking = mysqli_query($connect, "SELECT * FROM haven_details WHERE details_ref = '$poid'");
+          $booking_fetch = mysqli_fetch_array($get_booking);
+          $get_name = mysqli_query($connect, "SELECT * FROM haven_name WHERE hh_code = '$poid'");
+          $name_fetch = mysqli_fetch_array($get_name);
+          if (mysqli_num_rows($get_booking) < 1) {
+        ?>
+          <div class="row">
+            <div class="col-6">
+              <label for="" style="font-size: 15px">Time Slot</label>
+              <input type="time" name="timeslot" class="form-control" style="border: 1px solid #000; border-radius: 0; padding: 12px 15px; font-size: 12px" autocomplete="OFF" required>
+            </div>
+            <div class="col-6">
+              <label for="" style="font-size: 15px">Total Pax</label>
+              <input type="text" name="totalpax" class="form-control" style="border: 1px solid #000; border-radius: 0; padding: 12px 15px; font-size: 12px" autocomplete="OFF" required>
+            </div>
+            <div class="col-6">
+              <br>
+              <label for="" style="font-size: 15px">Full Name</label>
+              <input type="text" name="fname1" class="form-control" style="border: 1px solid #000; border-radius: 0; padding: 12px 15px; font-size: 12px" autocomplete="OFF" required>
+            </div>
+            <div class="col-6">
+              <br>
+              <label for="" style="font-size: 15px">Full Name</label>
+              <input type="text" name="contact" class="form-control" style="border: 1px solid #000; border-radius: 0; padding: 12px 15px; font-size: 12px" autocomplete="OFF" required>
+            </div>
+            <div class="col-12">
+              <div class="form-group">
+                <h2 style="color: #fff">Action</h2>
+                <button class="btn btn-success form-control" name="process" style="padding: 10px 14px; font-size: 12px">Save Information</button>
+              </div>
+            </div>
+          </div>
+        <?php
+          } else {
+        ?>
+          <div class="row">
+            <div class="col-6">
+              <label for="" style="font-size: 15px">Time Slot</label>
+              <input type="time" name="timeslot" class="form-control" style="border: 1px solid #000; border-radius: 0; padding: 12px 15px; font-size: 12px" autocomplete="OFF" required value="<?php echo $booking_fetch['details_time'] ?>">
+            </div>
+            <div class="col-6">
+              <label for="" style="font-size: 15px">Total Pax</label>
+              <input type="text" name="totalpax" class="form-control" style="border: 1px solid #000; border-radius: 0; padding: 12px 15px; font-size: 12px" autocomplete="OFF" required value="<?php echo $booking_fetch['details_pax'] ?>">
+            </div>
+            <div class="col-6">
+              <br>
+              <label for="" style="font-size: 15px">Full Name</label>
+              <input type="text" name="fname1" class="form-control" style="border: 1px solid #000; border-radius: 0; padding: 12px 15px; font-size: 12px" autocomplete="OFF" required value="<?php echo $name_fetch['pangalan'] ?>">
+            </div>
+            <div class="col-6">
+              <br>
+              <label for="" style="font-size: 15px">Contact </label>
+              <input type="text" name="contact" class="form-control" style="border: 1px solid #000; border-radius: 0; padding: 12px 15px; font-size: 12px" autocomplete="OFF" required value="<?php echo $booking_fetch['details_contact'] ?>">
+            </div>
+            <div class="col-12">
+              <div class="form-group">
+                <h2 style="color: #fff">Action</h2>
+                <button class="btn btn-primary form-control" name="update" style="padding: 10px 14px; font-size: 12px">Update Information</button>
+              </div>
+            </div>
+          </div>
+        <?php
+          }
+        ?>
+        <br>
+      </form>
+      <hr>
+      <br>
+      <h2>PAYMENT METHOD</h2>
+      <form action="booking-process.php?HHcodes=<?php echo $HHcode ?>&&poid=<?php echo $poid ?>" method="post" enctype="multipart/form-data">
         <div class="row">
-          <div class="col-6">
-            <label for="" style="font-size: 15px">Time Slot</label>
-            <input type="time" name="timeslot" class="form-control" style="border: 1px solid #000; border-radius: 0; padding: 12px 15px; font-size: 12px" autocomplete="OFF" required>
+          <div class="col-8">
+            <div class="form-group">
+              <br>
+              <table class="table table-sm table-bordered" style="font-size: 14px">
+                <tr>
+                  <th class="text-center bg-primary text-white">Bank Name</th>
+                  <th class="text-center bg-primary text-white">Account Name</th>
+                  <th class="text-center bg-primary text-white">Account Number</th>
+                </tr>
+                <tr>
+                  <th class="text-center">GCASGH</th>
+                  <th class="text-center">Juan Dela Cruz</th>
+                  <th class="text-center">9827982</th>
+                </tr>
+              </table>
+            </div>
           </div>
-          <div class="col-6">
-            <label for="" style="font-size: 15px">Total Pax</label>
-            <input type="text" name="totalpax" class="form-control" style="border: 1px solid #000; border-radius: 0; padding: 12px 15px; font-size: 12px" autocomplete="OFF" required>
-          </div>
-          <div class="col-6">
-            <br>
-            <label for="" style="font-size: 15px">Full Name</label>
-            <input type="text" name="fname1" class="form-control" style="border: 1px solid #000; border-radius: 0; padding: 12px 15px; font-size: 12px" autocomplete="OFF" required>
-          </div>
-          <div class="col-6">
-            <br>
-            <label for="" style="font-size: 15px">Full Name</label>
-            <input type="text" name="fname1" class="form-control" style="border: 1px solid #000; border-radius: 0; padding: 12px 15px; font-size: 12px" autocomplete="OFF" required>
-          </div>
-          <div class="col-12">
+          <div class="col-4">
+              <!-- <div class="form-group">
+                <img src="no_img_250.jpg" style="width: 100px; hieght: 200px" alt="" class="" id="preview">
+              </div> -->
+            <div class="form-group">
+              <br>
+              <h3 class="text-right">Upload Payment here</h3>
+              <input type="file" class="form-control" name="file" onchange="getImagePreview(event)" style="padding: 10px 14px; font-size: 12px">
+            </div>
             <div class="form-group">
               <h2 style="color: #fff">Action</h2>
-              <button class="btn btn-success form-control" name="validate" style="padding: 10px 14px; font-size: 12px">BOOK NOW</button>
+              <button class="btn btn-success form-control" name="book" style="padding: 10px 14px; font-size: 12px">Book Now!</button>
             </div>
           </div>
         </div>
-        <br>
+        <br><br>
       </form>
       <?php
         }
@@ -199,3 +285,24 @@
     </div>
   </div>
 <?php include 'include/footer.php' ?>
+
+<script>
+  	// $(function(){
+    //   $("#fileupload").change(function(event) {
+    //     var x = URL.createObjectURL(event.target.files[0]);
+    //     $("#upload-img").attr("src",x);
+    //     console.log(event);
+    //   });
+    // })
+
+    function getImagePreview(event)
+    {
+      var image=URL.createObjectURL(event.target.files[0]);
+      var imagediv= document.getElementById('preview');
+      var newimg=document.createElement('img');
+      imagediv.innerHTML='';
+      newimg.src=image;
+      newimg.width="300";
+      imagediv.appendChild(newimg);
+    }
+</script>

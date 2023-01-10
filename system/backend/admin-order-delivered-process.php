@@ -405,10 +405,10 @@
                 $login_sql = "UPDATE upti_users SET users_status = 'Active' WHERE users_code = '$maycode'";
                 $login_qry = mysqli_query($connect, $login_sql);
 
-                $update_earn1 = "UPDATE upti_reseller SET reseller_earning = '$creator_earn' WHERE reseller_code = '$users_code'";
+                $update_earn1 = "UPDATE upti_reseller SET reseller_earning = '$creator_earn' WHERE reseller_code = '$users_creator'";
                 $update_earn_qry1 = mysqli_query($connect, $update_earn1);
     
-                $earn_history = "INSERT INTO upti_earning (earning_code, earning_poid, earning_earnings, earning_tax, earning_remarks, earning_status, earning_name) VALUES ('$users_code', '$poid', '$sales_earnings', '$tax', '$remarks', 'Sales', '$seller_id')";
+                $earn_history = "INSERT INTO upti_earning (earning_code, earning_poid, earning_earnings, earning_tax, earning_remarks, earning_status, earning_name) VALUES ('$users_creator', '$poid', '$sales_earnings', '$tax', '$remarks', 'Sales', '$seller_id')";
                 $earn_history_sql = mysqli_query($connect, $earn_history);
 
                 // added stockist percentage

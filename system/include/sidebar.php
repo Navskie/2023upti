@@ -1047,6 +1047,14 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="mybooking.php" class="nav-link">
+              <i class="nav-icon uil uil-ticket"></i>
+              <p>
+                Hidden Haven
+              </p>
+            </a>
+          </li>
           <!-- <li class="nav-item">
             <a href="s_ph.php" class="nav-link">
               <i class="nav-icon uil uil-globe"></i>
@@ -1480,6 +1488,14 @@
               <i class="nav-icon uil uil-wallet"></i>
               <p>
                 Wallet
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="mybooking.php" class="nav-link">
+              <i class="nav-icon uil uil-ticket"></i>
+              <p>
+                Hidden Haven
               </p>
             </a>
           </li>

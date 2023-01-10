@@ -27,7 +27,6 @@
                                     <th class="text-center">Image</th>
                                     <th class="text-center">Total Amount</th>
                                     <th class="text-center">Status</th>
-                                    <th class="text-center">Action</th>
                                   </tr>
                                 </thead>
                                 <?php
