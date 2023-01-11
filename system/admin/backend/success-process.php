@@ -14,7 +14,9 @@
   $details_code = $get_info_fetch['details_code'];
   $details_amount = $get_info_fetch['details_amount'];
 
-  $details_amount_5 = $details_amount * 0.08;
+  $eigth = $details_amount * 0.08;
+  $get_tax_8 = $eigth * 0.05;
+  $details_amount_5 = $eigth - $get_tax_8;
   // echo '<br>';
   $details_amount_admin = $details_amount * 0.02;
 
